@@ -1,0 +1,38 @@
+{
+    "name": "Simple AI Chatbot",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": "../",
+        "args": {
+            "USERNAME": "${localEnv:USER}${localEnv:USERNAME}",
+            "USER_UID": "${localEnv:USER_UID}"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "github.vscode-github-actions",
+                "GitHub.vscode-pull-request-github",
+                "redhat.vscode-yaml",
+                "bierner.markdown-mermaid",
+                "atlassian.atlascode",
+                "hashicorp.terraform",
+                "yzhang.markdown-all-in-one",
+                "ms-vscode.makefile-tools",
+                "amazonwebservices.aws-toolkit-vscode",
+                "foxundermoon.shell-format",
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "runArgs": [
+        "--add-host=host.docker.internal:host-gateway"
+    ],
+    "postStartCommand": "sudo chmod 666 /var/run/docker.sock"
+}

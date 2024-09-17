@@ -1,0 +1,5 @@
+chainlit==1.1.404
+langchain==0.3.0
+notebook==7.2.2
+pytest==8.3.3
+pytest-cov==5.0.0
