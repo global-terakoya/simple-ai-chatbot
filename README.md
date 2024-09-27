@@ -15,7 +15,9 @@ Super simple AI chatbot examples using LangChain and Chainlit.
 
 ## DevContainer
 
-if you use DevContainer, you don't need to setup.
+```bash
+echo "OPENAI_API_KEY=<your-key>" >> .secrets
+```
 
 ## Local
 
@@ -23,6 +25,21 @@ if you use DevContainer, you don't need to setup.
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+echo "OPENAI_API_KEY=<your-key>" >> .secrets
+```
+
+# Run
+
+For v01, you can run the chatbot with the following command.
+
+```bash
+python src/chatbot_v01.py
+```
+
+For v02 to v05, you can run the chatbots with the following command.
+
+```bash
+chainlit run src/chatbot_v0[2-5].py
 ```
 
 # References
