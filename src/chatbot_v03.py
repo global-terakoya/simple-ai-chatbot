@@ -1,19 +1,12 @@
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+from langchain_community.chat_message_histories import ChatMessageHistory
+import chainlit as cl
+
 load_dotenv()
 load_dotenv('.secrets')
 
-from langchain_openai import ChatOpenAI
-from langchain_community.chat_message_histories import ChatMessageHistory
-
-import chainlit as cl
-
-llm = ChatOpenAI(
-    model="gpt-4o-mini",
-    temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2,
-)
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 message_history = ChatMessageHistory()
 

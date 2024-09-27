@@ -1,15 +1,13 @@
 from dotenv import load_dotenv
-load_dotenv()
-load_dotenv('.secrets')
-
 from openai import OpenAI
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain.agents import Tool
-
 from langgraph.prebuilt import create_react_agent
-
 import chainlit as cl
+
+load_dotenv()
+load_dotenv('.secrets')
 
 
 def generate_image(prompt):
@@ -31,15 +29,7 @@ dalle_tool = Tool(
     description="Generate an image based on a given prompt."
 )
 
-
-llm = ChatOpenAI(
-    model="gpt-4o-mini",
-    temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2,
-)
-
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 graph = create_react_agent(llm, [dalle_tool])
 

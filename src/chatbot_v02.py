@@ -1,10 +1,9 @@
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+import chainlit as cl
+
 load_dotenv()
 load_dotenv('.secrets')
-
-from langchain_openai import ChatOpenAI
-
-import chainlit as cl
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
