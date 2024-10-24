@@ -11,8 +11,6 @@ load_dotenv()
 load_dotenv('.secrets')
 
 
-
-
 def generate_image(prompt):
     client = OpenAI()
     response = client.images.generate(
